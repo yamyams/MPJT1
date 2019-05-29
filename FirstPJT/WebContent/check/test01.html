@@ -1,0 +1,18 @@
+<script language="javascript">
+	var string = ""; //테스트할 문자열
+
+	// 문자열 초기화
+	for(var j=0; j<10000; j++) {
+		string += "값";
+	}
+	var stringLength = string.length;
+	var stringByteLength = 0;
+	  
+	  
+	// 정규식을 활용한 계산
+	console.time("정규식방식");
+	stringByteLength = string.replace(/[\0-\x7f]|([0-\u07ff]|(.))/g,"$&$1$2").length;
+	console.log(stringByteLength + " Bytes");
+	console.timeEnd("정규식방식");
+</script>
+	
